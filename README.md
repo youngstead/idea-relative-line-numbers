@@ -6,14 +6,15 @@ This plugin was inspired by @vayafulano's [Relative Line Numbers plugin](https:/
 # Why?
 This is a simple lightweight solution to display relative line numbers in the gutter.
 
-## Why not IdeaVim?
-If you like VIM, go ahead and use IdeaVim. It does the same and much more.
-However, if you don't need or don't want to use all other features related to VIM, this plugin is a lightweight implementation.
+## Why not [IdeaVim](https://github.com/JetBrains/ideavim)?
+If you like VIM, then yes, go ahead and use IdeaVim. It does the same and much more.
+However, if you don't need or don't want to use all other features of IdeaVim, this plugin offer a lightweight
+alternative to the relative line numbers feature.
 
 ## Why not use the original Relative Line Numbers plugin from @vayafulano?
 Despite being outdated and not searchable via the IDE, you can still install vayafulano's plugin by downloading the jar file and installing it manuanlly. 
 
-However. vayafulano's solution uses annotations to display the line numbers, which has several implications:
+However, vayafulano's solution uses annotations to display the line numbers, which has several implications:
 
 * Both the regular line numbers (if not hidden) and relative ones can be displayed at the same time. This is not an issue per se, but it is outside the plugin's control.
 * The relative line numbers may conflict with other annotations (e.g VCS) and closing annotations will unintuitively remove the relative line numbers as well.
