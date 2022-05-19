@@ -6,26 +6,26 @@ import com.intellij.openapi.editor.LineNumberConverter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class RelativeLineNumbersConverter implements LineNumberConverter {
+public class RelativeLineNumberConverter implements LineNumberConverter {
 
 	@Override
 	public @Nullable Integer convert(@NotNull Editor editor, int lineNumber) {
 		CaretModel caret = editor.getCaretModel();
-		return this.isCaretInLine(caret, lineNumber)
+		return isCaretInLine(caret, lineNumber)
 				? lineNumber
-				: this.getRelativeLineNumber(caret, lineNumber);
+				: getRelativeLineNumber(caret, lineNumber);
+	}
+
+	private boolean isCaretInLine(CaretModel caret, int lineNumber) {
+		return getCaretLine(caret) == lineNumber;
 	}
 
 	private int getCaretLine(CaretModel caret) {
 		return caret.getLogicalPosition().line + 1;
 	}
 
-	private boolean isCaretInLine(CaretModel caret, int lineNumber) {
-		return this.getCaretLine(caret) == lineNumber;
-	}
-
 	private int getRelativeLineNumber(CaretModel caret, int lineNumber) {
-		return Math.abs(this.getCaretLine(caret) - lineNumber);
+		return Math.abs(getCaretLine(caret) - lineNumber);
 	}
 
 	@Override
