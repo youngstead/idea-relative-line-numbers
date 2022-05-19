@@ -1,5 +1,7 @@
-# idea-relative-line-numbers
+# Relative Numbers Plugin
 A plugin to display relative line numbers on IDEA-based IDEs.
+
+This plugin was inspired by @vayafulano's [Relative Line Numbers plugin](https://plugins.jetbrains.com/plugin/7414-relative-line-numbers).
 
 # How to use
 Simply install the plugin from the MarketPlace via the IDE or the website:
