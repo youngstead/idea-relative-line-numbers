@@ -17,7 +17,7 @@ public class EditorFactoryListenerImpl implements EditorFactoryListener {
 		Editor editor = event.getEditor();
 		if (this.isFileEditor(editor)) {
 			EditorGutter gutter = editor.getGutter();
-			gutter.registerTextAnnotation(new RelativeLineNumbersGutter());
+			gutter.registerTextAnnotation(new RelativeLineNumbersGutterProvider());
 		}
 	}
 

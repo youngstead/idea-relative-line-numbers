@@ -2,7 +2,7 @@ package youngstead.relativelinenumbers;
 
 import com.intellij.openapi.editor.Editor;
 
-public class RelativeLineNumbersGutter implements DefaultTextAnnotationGutterProvider {
+public class RelativeLineNumbersGutterProvider implements DefaultTextAnnotationGutterProvider {
 
 	@Override
 	public String getLineText(int line, Editor editor) {
