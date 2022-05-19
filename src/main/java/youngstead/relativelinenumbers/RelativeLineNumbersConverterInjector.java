@@ -13,8 +13,22 @@ public class RelativeLineNumbersConverterInjector implements CaretListener {
 
 	@Override
 	public void caretPositionChanged(@NotNull CaretEvent event) {
-		EditorGutter gutter = event.getEditor().getGutter();
-		// Reset the lineConverter to trigger a repaint.
-		gutter.setLineNumberConverter(relativeLineNumbersConverter);
+		if (this.didCaretChangeLines(event)) {
+			// Reset the lineConverter to trigger a repaint.
+			event.getEditor()
+					.getGutter()
+					.setLineNumberConverter(relativeLineNumbersConverter);
+		}
+	}
+	private boolean didCaretChangeLines(@NotNull CaretEvent event) {
+		return this.getNewLine(event) != this.getOldLine(event);
+	}
+
+	private int getNewLine(CaretEvent event) {
+		return event.getNewPosition().line;
+	}
+
+	private int getOldLine(CaretEvent event) {
+		return event.getOldPosition().line;
 	}
 }
