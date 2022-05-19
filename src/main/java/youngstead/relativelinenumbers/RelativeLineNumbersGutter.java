@@ -1,12 +1,10 @@
 package youngstead.relativelinenumbers;
 
 import com.intellij.openapi.editor.Editor;
-import org.jetbrains.annotations.Nullable;
 
 public class RelativeLineNumbersGutter implements DefaultTextAnnotationGutterProvider {
 
 	@Override
-	@Nullable
 	public String getLineText(int line, Editor editor) {
 		return this.isCaretInLine(line, editor)
 				? this.getLineNumberText(line)

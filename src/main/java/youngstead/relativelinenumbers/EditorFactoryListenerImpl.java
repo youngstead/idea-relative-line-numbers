@@ -1,7 +1,7 @@
 package youngstead.relativelinenumbers;
 
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorGutter;
 import com.intellij.openapi.editor.event.EditorFactoryEvent;
 import com.intellij.openapi.editor.event.EditorFactoryListener;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
@@ -12,13 +12,12 @@ import org.jetbrains.annotations.Nullable;
 
 public class EditorFactoryListenerImpl implements EditorFactoryListener {
 
-	private final CaretListenerImpl caretListener = new CaretListenerImpl();
-
 	@Override
 	public void editorCreated(@NotNull EditorFactoryEvent event) {
 		Editor editor = event.getEditor();
 		if (this.isFileEditor(editor)) {
-			editor.getCaretModel().addCaretListener(this.caretListener);
+			EditorGutter gutter = editor.getGutter();
+			gutter.registerTextAnnotation(new RelativeLineNumbersGutter());
 		}
 	}
 
