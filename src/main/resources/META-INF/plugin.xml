@@ -25,6 +25,6 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <editorFactoryListener implementation="youngstead.relativelinenumbers.EditorFactoryListenerImpl"/>
     </extensions>
 </idea-plugin>
