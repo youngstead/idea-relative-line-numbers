@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "youngstead"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -14,8 +14,7 @@ repositories {
 intellij {
     version.set("2021.2")
     type.set("IC") // Target IDE Platform
-
-    plugins.set(listOf(/* Plugin Dependencies */))
+    pluginName.set("Relative-Line-Numbers")
 }
 
 tasks {
