@@ -1,7 +1,14 @@
 # Relative Numbers Plugin
 A plugin to display relative line numbers on IDEA-based IDEs.
 
-This plugin was inspired by @vayafulano's [Relative Line Numbers plugin](https://plugins.jetbrains.com/plugin/7414-relative-line-numbers).
+# How to use
+Simply install the plugin from the MarketPlace via the IDE or the website:
+[JetBrains Marketplace](https://plugins.jetbrains.com/plugin/19193-relative-line-numbers)
+
+# How it works
+The line numbers on the gutter are replaced by relative values. If you want to use the default line numbers you have to disable or uninstall the plugin.
+
+![2022-05-19 16_43_26-idea-relative-line-numbers  H__Narduw_workspace_idea-relative-line-numbers  – …_](https://user-images.githubusercontent.com/16376552/169325070-b6c6db64-3aea-4116-906f-59fd6d80fbc3.png)
 
 # Why?
 This is a simple lightweight solution to display relative line numbers in the gutter.
@@ -21,11 +28,5 @@ However, vayafulano's solution uses annotations to display the line numbers, whi
 
 This plugin uses more modern Intellij Platform SDK features to replace the line numbers with relative values, which should brings some performance improvements as well.
 
-# How to use
-Simply install the plugin from the MarketPlace via the IDE or the website:
-[JetBrains Marketplace](https://plugins.jetbrains.com/plugin/19193-relative-line-numbers)
-
-# How it works
-The line numbers on the gutter are replaced by relative values. If you want to use the default line numbers you have to disable or uninstall the plugin.
-
-![2022-05-19 16_43_26-idea-relative-line-numbers  H__Narduw_workspace_idea-relative-line-numbers  – …_](https://user-images.githubusercontent.com/16376552/169325070-b6c6db64-3aea-4116-906f-59fd6d80fbc3.png)
+# Recognition
+This plugin was inspired by @vayafulano's [Relative Line Numbers plugin](https://plugins.jetbrains.com/plugin/7414-relative-line-numbers).
