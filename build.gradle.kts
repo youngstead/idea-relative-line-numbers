@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "youngstead"
-version = "1.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -15,6 +15,7 @@ intellij {
     version.set("2021.2")
     type.set("IC") // Target IDE Platform
     pluginName.set("Relative-Line-Numbers")
+    updateSinceUntilBuild.set(false)
 }
 
 tasks {
@@ -22,11 +23,6 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "11"
         targetCompatibility = "11"
-    }
-
-    patchPluginXml {
-        sinceBuild.set("212")
-        untilBuild.set("222.*")
     }
 
     signPlugin {
