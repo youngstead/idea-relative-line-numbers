@@ -7,7 +7,7 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>Relative Line Numbers</name>
     <version>1.0.2</version>
-    <idea-version since-build="212" until-build="231.*" />
+    <idea-version since-build="212" />
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor>Bernardo J. C. Nunes</vendor>
