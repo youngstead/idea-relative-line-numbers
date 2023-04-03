@@ -2,30 +2,25 @@
 
 A plugin to display relative line numbers on IDEA-based IDEs.
 
-# How to use
+# What it does
 
-Simply install the plugin from the MarketPlace via the IDE or the website:
-[JetBrains Marketplace](https://plugins.jetbrains.com/plugin/19193-relative-line-numbers)
-
-# How it works
-
-The line numbers on the gutter are replaced by relative values. If you want to
-use the default line numbers you have to disable or uninstall the plugin.
+Displays line numbers relative to the caret's position. Optionally, you can
+enable the original values as well, showing both at the same time.
 
 ![2022-05-19 16_43_26-idea-relative-line-numbers  H__Narduw_workspace_idea-relative-line-numbers – …_](https://user-images.githubusercontent.com/16376552/169325070-b6c6db64-3aea-4116-906f-59fd6d80fbc3.png)
 
 # Why?
 
-This is a simple lightweight solution to display relative line numbers in the
-gutter.
+It can be useful to know how many lines you need to scroll up or down before you do. 
+This plugin is a simple lightweight solution for that.
 
 ## Why not [IdeaVim](https://github.com/JetBrains/ideavim)?
 
 If you like VIM, then yes, go ahead and use IdeaVim. It does the same and much
-more.
-However, if you don't need or don't want to use all other features of IdeaVim,
-this plugin offers a lightweight alternative to the
-relative line numbers feature.
+more!
+However, if you don't need or want to use all other features of Vim,
+this plugin offers a lightweight alternative 
+to the relative line numbers feature in particular.
 
 # Recognition
 
@@ -39,12 +34,12 @@ by downloading the JAR file directly and installing it manually. However,
 this solution uses annotations to display the line numbers, which has several
 implications, including the following:
 
-* Regular and relative line numbers may both be displayed simultaneously. This
-  is not an issue per se but rather a side effect, outside the plugin's control.
+* Regular and relative line numbers may both be displayed simultaneously 
+  but only as an unintentional side effect, outside the plugin's control.
 * The relative line numbers may conflict with other annotations (e.g. VCS) and
   closing annotations will unintuitively remove the relative line numbers as
-  well.
+  well, causing confusion.
 
 To address these issues, this plugin uses modern IntelliJ Platform SDK features
-to replace line numbers with relative values. This should improve performance (
-not measured) while avoiding conflicts with annotations.
+to replace line numbers with relative values. This should also improve performance
+(not measured) while avoiding conflicts with annotations.
