@@ -1,4 +1,4 @@
-# Relative Numbers Plugin
+# Relative Line Numbers Plugin
 A plugin to display relative line numbers on IDEA-based IDEs.
 
 # How to use
@@ -18,15 +18,18 @@ If you like VIM, then yes, go ahead and use IdeaVim. It does the same and much m
 However, if you don't need or don't want to use all other features of IdeaVim, this plugin offer a lightweight
 alternative to the relative line numbers feature.
 
-## Why not use the original Relative Line Numbers plugin from @vayafulano?
-Despite being outdated and not searchable via the IDE, you can still install vayafulano's plugin by downloading the jar file and installing it manuanlly. 
-
-However, vayafulano's solution uses annotations to display the line numbers, which has several implications:
-
-* Both the regular line numbers (if not hidden) and relative ones can be displayed at the same time. This is not an issue per se, but it is outside the plugin's control.
-* The relative line numbers may conflict with other annotations (e.g VCS) and closing annotations will unintuitively remove the relative line numbers as well.
-
-This plugin uses more modern Intellij Platform SDK features to replace the line numbers with relative values, which should brings some performance improvements as well.
-
 # Recognition
-This plugin was inspired by @vayafulano's [Relative Line Numbers plugin](https://plugins.jetbrains.com/plugin/7414-relative-line-numbers).
+
+This plugin was inspired by [@vayafulano's plugin](https://plugins.jetbrains.com/plugin/7414-relative-line-numbers).
+
+## Why not use the @vayafulano's plugin instead?
+Despite being outdated and not searchable via the IDE, you can still install it by downloading the
+JAR file directly and installing it manually. However, this solution uses annotations to display the line numbers, which has several implications has several implications, including the following:
+
+* Regular and relative line numbers may both be displayed simultaneously. This is not an issue per se but
+ rather a side effect, outside the plugin's control.
+* The relative line numbers may conflict with other annotations (e.g. VCS) and closing annotations will unintuitively remove the relative line numbers as well.
+
+To address these issues, this plugin uses modern IntelliJ Platform SDK features
+to replace line numbers with relative values. This should improve performance (not measured)
+while avoiding conflicts with annotations.
