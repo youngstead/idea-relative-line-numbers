@@ -32,6 +32,6 @@ public class EditorFactoryListenerImpl implements EditorFactoryListener {
 	public void setRelativeLineNumberConverter(Editor editor) {
 		editor
 				.getGutter()
-				.setLineNumberConverter(relativeLineNumberConverter);
+				.setLineNumberConverter(LineNumberConverter.DEFAULT, relativeLineNumberConverter);
 	}
 }
