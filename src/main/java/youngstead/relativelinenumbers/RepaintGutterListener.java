@@ -11,31 +11,31 @@ import org.jetbrains.annotations.NotNull;
  */
 public class RepaintGutterListener implements CaretListener {
 
-	final Logger logger = Logger.getInstance(RepaintGutterListener.class);
+    final Logger logger = Logger.getInstance(RepaintGutterListener.class);
 
-	@Override
-	public void caretPositionChanged(@NotNull CaretEvent event) {
-		if (didCaretChangeLines(event)) {
-			try {
-				EditorGutterComponentEx gutter = (EditorGutterComponentEx) event
-						.getEditor()
-						.getGutter();
-				gutter.repaint();
-			} catch (Exception e) {
-				logger.debug("Could not refresh gutter. Unknown gutter implementation.", e);
-			}
-		}
-	}
+    @Override
+    public void caretPositionChanged(@NotNull CaretEvent event) {
+        if (didCaretChangeLines(event)) {
+            try {
+                EditorGutterComponentEx gutter = (EditorGutterComponentEx) event
+                    .getEditor()
+                    .getGutter();
+                gutter.repaint();
+            } catch (Exception e) {
+                logger.debug("Could not refresh gutter. Unknown gutter implementation.", e);
+            }
+        }
+    }
 
-	private boolean didCaretChangeLines(@NotNull CaretEvent event) {
-		return getNewLine(event) != getOldLine(event);
-	}
+    private boolean didCaretChangeLines(@NotNull CaretEvent event) {
+        return getNewLine(event) != getOldLine(event);
+    }
 
-	private int getNewLine(CaretEvent event) {
-		return event.getNewPosition().line;
-	}
+    private int getNewLine(CaretEvent event) {
+        return event.getNewPosition().line;
+    }
 
-	private int getOldLine(CaretEvent event) {
-		return event.getOldPosition().line;
-	}
+    private int getOldLine(CaretEvent event) {
+        return event.getOldPosition().line;
+    }
 }

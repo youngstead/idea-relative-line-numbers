@@ -12,26 +12,26 @@ import org.jetbrains.annotations.NotNull;
  */
 public class EditorFactoryListenerImpl implements EditorFactoryListener {
 
-	private final CaretListener repaintGutterCaretListener = new RepaintGutterListener();
+    private final CaretListener repaintGutterCaretListener = new RepaintGutterListener();
 
-	private final LineNumberConverter relativeLineNumberConverter = new RelativeLineNumberConverter();
+    private final LineNumberConverter relativeLineNumberConverter = new RelativeLineNumberConverter();
 
-	@Override
-	public void editorCreated(@NotNull EditorFactoryEvent event) {
-		Editor editor = event.getEditor();
-		setRelativeLineNumberConverter(editor);
-		setRepaintGutterListener(editor);
-	}
+    @Override
+    public void editorCreated(@NotNull EditorFactoryEvent event) {
+        Editor editor = event.getEditor();
+        setRelativeLineNumberConverter(editor);
+        setRepaintGutterListener(editor);
+    }
 
-	private void setRepaintGutterListener(Editor editor) {
-		editor
-				.getCaretModel()
-				.addCaretListener(repaintGutterCaretListener);
-	}
+    private void setRepaintGutterListener(Editor editor) {
+        editor
+            .getCaretModel()
+            .addCaretListener(repaintGutterCaretListener);
+    }
 
-	public void setRelativeLineNumberConverter(Editor editor) {
-		editor
-				.getGutter()
-				.setLineNumberConverter(LineNumberConverter.DEFAULT, relativeLineNumberConverter);
-	}
+    public void setRelativeLineNumberConverter(Editor editor) {
+        editor
+            .getGutter()
+            .setLineNumberConverter(LineNumberConverter.DEFAULT, relativeLineNumberConverter);
+    }
 }

@@ -8,28 +8,28 @@ import org.jetbrains.annotations.Nullable;
 
 public class RelativeLineNumberConverter implements LineNumberConverter {
 
-	@Override
-	public @Nullable Integer convert(@NotNull Editor editor, int lineNumber) {
-		CaretModel caret = editor.getCaretModel();
-		return isCaretInLine(caret, lineNumber)
-				? lineNumber
-				: getRelativeLineNumber(caret, lineNumber);
-	}
+    @Override
+    public @Nullable Integer convert(@NotNull Editor editor, int lineNumber) {
+        CaretModel caret = editor.getCaretModel();
+        return isCaretInLine(caret, lineNumber)
+            ? lineNumber
+            : getRelativeLineNumber(caret, lineNumber);
+    }
 
-	private boolean isCaretInLine(CaretModel caret, int lineNumber) {
-		return getCaretLine(caret) == lineNumber;
-	}
+    private boolean isCaretInLine(CaretModel caret, int lineNumber) {
+        return getCaretLine(caret) == lineNumber;
+    }
 
-	private int getCaretLine(CaretModel caret) {
-		return caret.getLogicalPosition().line + 1;
-	}
+    private int getCaretLine(CaretModel caret) {
+        return caret.getLogicalPosition().line + 1;
+    }
 
-	private int getRelativeLineNumber(CaretModel caret, int lineNumber) {
-		return Math.abs(getCaretLine(caret) - lineNumber);
-	}
+    private int getRelativeLineNumber(CaretModel caret, int lineNumber) {
+        return Math.abs(getCaretLine(caret) - lineNumber);
+    }
 
-	@Override
-	public @Nullable Integer getMaxLineNumber(@NotNull Editor editor) {
-		return LineNumberConverter.DEFAULT.getMaxLineNumber(editor);
-	}
+    @Override
+    public @Nullable Integer getMaxLineNumber(@NotNull Editor editor) {
+        return LineNumberConverter.DEFAULT.getMaxLineNumber(editor);
+    }
 }
