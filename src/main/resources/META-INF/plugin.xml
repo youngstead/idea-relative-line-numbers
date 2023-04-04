@@ -28,6 +28,15 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <editorFactoryListener
-                implementation="youngstead.relativelinenumbers.EditorFactoryListenerImpl"/>
+            implementation="youngstead.relativelinenumbers.EditorFactoryListenerImpl"/>
+
+        <applicationService
+            serviceImplementation="youngstead.relativelinenumbers.settings.AppSettingsState"/>
+
+        <applicationConfigurable
+            parentId="tools"
+            instance="youngstead.relativelinenumbers.settings.ApplicationSettingsConfigurable"
+            id="youngstead.relativelinenumbers.settings.ApplicationSettingsConfigurable"
+            displayName="Line Numbers"/>
     </extensions>
 </idea-plugin>
