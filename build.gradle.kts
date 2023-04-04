@@ -12,7 +12,7 @@ repositories {
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
-    version.set("2023.1")
+    version.set("2022.2")
     type.set("IC") // Target IDE Platform
     pluginName.set("Relative-Line-Numbers")
     updateSinceUntilBuild.set(false)

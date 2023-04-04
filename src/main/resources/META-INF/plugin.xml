@@ -7,7 +7,7 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>Relative Line Numbers</name>
     <version>1.0.2</version>
-    <idea-version since-build="212"/>
+    <idea-version since-build="222"/>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor>Bernardo J. C. Nunes</vendor>
@@ -28,15 +28,15 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <editorFactoryListener
-            implementation="youngstead.relativelinenumbers.EditorFactoryListenerImpl"/>
+            implementation="youngstead.relativelinenumbers.EditorListener"/>
 
         <applicationService
-            serviceImplementation="youngstead.relativelinenumbers.settings.AppSettingsState"/>
+            serviceImplementation="youngstead.relativelinenumbers.settings.AppSettings"/>
 
         <applicationConfigurable
             parentId="tools"
             instance="youngstead.relativelinenumbers.settings.ApplicationSettingsConfigurable"
             id="youngstead.relativelinenumbers.settings.ApplicationSettingsConfigurable"
-            displayName="Line Numbers"/>
+            displayName="Relative Line Numbers Plugin"/>
     </extensions>
 </idea-plugin>
