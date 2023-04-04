@@ -13,13 +13,13 @@ import com.intellij.openapi.fileEditor.TextEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import org.jetbrains.annotations.NotNull;
-import youngstead.relativelinenumbers.settings.AppSettings;
+import youngstead.relativelinenumbers.settings.ApplicationSettings;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Listens to Editor creation and settings updates to display the desired Line Numbers in the Gutter.
+ * Listens to Editor creation and settings update to display the correct Line Numbers in the Gutter.
  */
 public class EditorListener implements EditorFactoryListener, PropertyChangeListener {
 
@@ -28,7 +28,7 @@ public class EditorListener implements EditorFactoryListener, PropertyChangeList
     private final LineNumberConverter relativeLineNumberConverter = new RelativeLineNumberConverter();
 
     public EditorListener() {
-        AppSettings appSettings = AppSettings.getInstance();
+        ApplicationSettings appSettings = ApplicationSettings.getInstance();
         appSettings.registerListener("displayAbsoluteLineNumbers", this);
     }
 
@@ -46,7 +46,7 @@ public class EditorListener implements EditorFactoryListener, PropertyChangeList
     }
 
     public void setLineNumberConverter(EditorEx editor) {
-        AppSettings appSettings = AppSettings.getInstance();
+        ApplicationSettings appSettings = ApplicationSettings.getInstance();
         EditorGutterComponentEx editorGutter = editor.getGutterComponentEx();
         if (appSettings.shouldDisplayAbsoluteLineNumbers()) {
             editorGutter.setLineNumberConverter(LineNumberConverter.DEFAULT, relativeLineNumberConverter);

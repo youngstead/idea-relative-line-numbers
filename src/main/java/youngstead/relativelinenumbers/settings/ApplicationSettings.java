@@ -11,29 +11,32 @@ import org.jetbrains.annotations.Nullable;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+/**
+ * Persists the plugin settings on an Application level.
+ */
 @State(
-    name = "youngstead.relativelinenumbers.settings.AppSettings",
+    name = "youngstead.relativelinenumbers.settings.ApplicationSettings",
     storages = @Storage("RelativeLineNumbersPlugin.xml")
 )
-public class AppSettings implements PersistentStateComponent<AppSettings> {
+public class ApplicationSettings implements PersistentStateComponent<ApplicationSettings> {
 
     private final PropertyChangeSupport propChangeSupport = new PropertyChangeSupport(this);
 
     private boolean displayAbsoluteLineNumbers = false;
 
-    public static AppSettings getInstance() {
+    public static ApplicationSettings getInstance() {
         return ApplicationManager.getApplication()
-            .getService(AppSettings.class);
+            .getService(ApplicationSettings.class);
     }
 
     @Nullable
     @Override
-    public AppSettings getState() {
+    public ApplicationSettings getState() {
         return this;
     }
 
     @Override
-    public void loadState(@NotNull AppSettings state) {
+    public void loadState(@NotNull ApplicationSettings state) {
         XmlSerializerUtil.copyBean(state, this);
     }
 

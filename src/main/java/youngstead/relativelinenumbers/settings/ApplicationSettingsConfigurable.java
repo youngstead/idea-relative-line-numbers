@@ -6,6 +6,9 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
+/**
+ * Interacts with IntelliJ's platform to manage settings interactions.
+ */
 public class ApplicationSettingsConfigurable implements Configurable {
 
     private SettingsPanel settingsPanel;
@@ -23,19 +26,19 @@ public class ApplicationSettingsConfigurable implements Configurable {
 
     @Override
     public boolean isModified() {
-        AppSettings appSettings = AppSettings.getInstance();
+        ApplicationSettings appSettings = ApplicationSettings.getInstance();
         return settingsPanel.getDisplayAbsoluteLineNumbersOption() != appSettings.shouldDisplayAbsoluteLineNumbers();
     }
 
     @Override
     public void apply() {
-        AppSettings appSettings = AppSettings.getInstance();
+        ApplicationSettings appSettings = ApplicationSettings.getInstance();
         appSettings.setDisplayAbsoluteLineNumbers(settingsPanel.getDisplayAbsoluteLineNumbersOption());
     }
 
     @Override
     public void reset() {
-        AppSettings appSettings = AppSettings.getInstance();
+        ApplicationSettings appSettings = ApplicationSettings.getInstance();
         settingsPanel.setDisplayAbsoluteLineNumbersOption(appSettings.shouldDisplayAbsoluteLineNumbers());
     }
 }

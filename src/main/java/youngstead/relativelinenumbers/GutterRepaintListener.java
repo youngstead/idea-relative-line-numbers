@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.ex.EditorGutterComponentEx;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Listens to caret movement to repaint the gutter when the caret has moves between lines.
+ * Listens to caret movement to repaint the gutter when the caret moves to another line.
  */
 public class GutterRepaintListener implements CaretListener {
 

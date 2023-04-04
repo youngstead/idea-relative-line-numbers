@@ -6,6 +6,9 @@ import com.intellij.openapi.editor.LineNumberConverter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Converts line numbers to numbers relative to the caret's position.
+ */
 public class RelativeLineNumberConverter implements LineNumberConverter {
 
     @Override

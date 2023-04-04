@@ -31,7 +31,7 @@
             implementation="youngstead.relativelinenumbers.EditorListener"/>
 
         <applicationService
-            serviceImplementation="youngstead.relativelinenumbers.settings.AppSettings"/>
+            serviceImplementation="youngstead.relativelinenumbers.settings.ApplicationSettings"/>
 
         <applicationConfigurable
             parentId="editor"

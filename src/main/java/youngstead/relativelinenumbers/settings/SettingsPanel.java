@@ -5,6 +5,9 @@ import com.intellij.util.ui.FormBuilder;
 
 import javax.swing.*;
 
+/**
+ * The JPanel that displays the plugin settings in the UI.
+ */
 public class SettingsPanel {
     private final JBCheckBox absoluteLineNumbersOption = new JBCheckBox("Absolute values");
 
