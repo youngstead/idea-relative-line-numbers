@@ -5,14 +5,18 @@ import com.intellij.openapi.editor.LineNumberConverter;
 import com.intellij.openapi.editor.event.CaretListener;
 import com.intellij.openapi.editor.event.EditorFactoryEvent;
 import com.intellij.openapi.editor.event.EditorFactoryListener;
+import com.intellij.openapi.editor.ex.EditorEx;
 import com.intellij.openapi.editor.ex.EditorGutterComponentEx;
+import com.intellij.openapi.fileEditor.FileEditor;
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.fileEditor.TextEditor;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import org.jetbrains.annotations.NotNull;
 import youngstead.relativelinenumbers.settings.AppSettings;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Listens to Editor creation and settings updates to display the desired Line Numbers in the Gutter.
@@ -23,8 +27,6 @@ public class EditorListener implements EditorFactoryListener, PropertyChangeList
 
     private final LineNumberConverter relativeLineNumberConverter = new RelativeLineNumberConverter();
 
-    private final Set<Editor> openEditors = new HashSet<>();
-
     public EditorListener() {
         AppSettings appSettings = AppSettings.getInstance();
         appSettings.registerListener("displayAbsoluteLineNumbers", this);
@@ -32,39 +34,40 @@ public class EditorListener implements EditorFactoryListener, PropertyChangeList
 
     @Override
     public void editorCreated(@NotNull EditorFactoryEvent event) {
-        Editor editor = event.getEditor();
-        openEditors.add(editor);
-        setRelativeLineNumberConverter(editor);
-        setRelativeNumbersRepaintListener(editor);
+        EditorEx editor = (EditorEx) event.getEditor();
+        setLineNumberConverter(editor);
+        setCaretListener(editor);
     }
 
-    @Override
-    public void editorReleased(@NotNull EditorFactoryEvent event) {
-        openEditors.remove(event.getEditor());
-    }
-
-
-    private void setRelativeNumbersRepaintListener(Editor editor) {
+    private void setCaretListener(Editor editor) {
         editor
             .getCaretModel()
             .addCaretListener(repaintGutterCaretListener);
     }
 
-    public void setRelativeLineNumberConverter(Editor editor) {
+    public void setLineNumberConverter(EditorEx editor) {
         AppSettings appSettings = AppSettings.getInstance();
-        EditorGutterComponentEx editorGutter = (EditorGutterComponentEx) editor.getGutter();
+        EditorGutterComponentEx editorGutter = editor.getGutterComponentEx();
         if (appSettings.shouldDisplayAbsoluteLineNumbers()) {
             editorGutter.setLineNumberConverter(LineNumberConverter.DEFAULT, relativeLineNumberConverter);
         } else {
             editorGutter.setLineNumberConverter(relativeLineNumberConverter);
         }
-        editorGutter.repaint();
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent propChangeEvent) {
-        for (Editor editor : openEditors) {
-            setRelativeLineNumberConverter(editor);
+        ProjectManager projectManager = ProjectManager.getInstance();
+        Project[] openProjects = projectManager.getOpenProjects();
+        for (Project project : openProjects) {
+            FileEditorManager editorManager = FileEditorManager.getInstance(project);
+            FileEditor[] fileEditors = editorManager.getAllEditors();
+            for (FileEditor fileEditor : fileEditors) {
+                if (fileEditor instanceof TextEditor textEditor) {
+                    EditorEx editorEx = (EditorEx) textEditor.getEditor();
+                    setLineNumberConverter(editorEx);
+                }
+            }
         }
     }
 }
