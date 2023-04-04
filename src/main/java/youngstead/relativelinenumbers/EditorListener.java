@@ -66,6 +66,7 @@ public class EditorListener implements EditorFactoryListener, PropertyChangeList
                 if (fileEditor instanceof TextEditor textEditor) {
                     EditorEx editorEx = (EditorEx) textEditor.getEditor();
                     setLineNumberConverter(editorEx);
+                    editorEx.reinitSettings();
                 }
             }
         }
