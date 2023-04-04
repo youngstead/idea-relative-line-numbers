@@ -34,9 +34,9 @@
             serviceImplementation="youngstead.relativelinenumbers.settings.AppSettings"/>
 
         <applicationConfigurable
-            parentId="tools"
+            parentId="editor"
             instance="youngstead.relativelinenumbers.settings.ApplicationSettingsConfigurable"
             id="youngstead.relativelinenumbers.settings.ApplicationSettingsConfigurable"
-            displayName="Relative Line Numbers Plugin"/>
+            displayName="Line Numbers"/>
     </extensions>
 </idea-plugin>

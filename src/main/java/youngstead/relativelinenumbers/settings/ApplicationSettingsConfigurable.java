@@ -12,7 +12,7 @@ public class ApplicationSettingsConfigurable implements Configurable {
 
     @Override
     public @NlsContexts.ConfigurableName String getDisplayName() {
-        return "Line Numbers Settings";
+        return "Line Numbers";
     }
 
     @Override

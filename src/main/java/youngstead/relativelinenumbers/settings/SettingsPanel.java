@@ -6,20 +6,26 @@ import com.intellij.util.ui.FormBuilder;
 import javax.swing.*;
 
 public class SettingsPanel {
-    private final JBCheckBox absLineNumbersOption = new JBCheckBox("Show absolute numbers");
+    private final JBCheckBox absoluteLineNumbersOption = new JBCheckBox("Absolute values");
 
     public JPanel build() {
+        JBCheckBox relativeLineNumbersOption = new JBCheckBox("Relative values");
+        relativeLineNumbersOption.setSelected(true);
+        // TODO: add option to disable relative numbers
+        relativeLineNumbersOption.setEnabled(false);
+
         return FormBuilder.createFormBuilder()
-            .addComponent(absLineNumbersOption, 1)
+            .addComponent(relativeLineNumbersOption, 0)
+            .addComponent(absoluteLineNumbersOption, 0)
             .addComponentFillVertically(new JPanel(), 0)
             .getPanel();
     }
 
     public boolean getDisplayAbsoluteLineNumbersOption() {
-        return absLineNumbersOption.isSelected();
+        return absoluteLineNumbersOption.isSelected();
     }
 
     public void setDisplayAbsoluteLineNumbersOption(boolean enabled) {
-        absLineNumbersOption.setSelected(enabled);
+        absoluteLineNumbersOption.setSelected(enabled);
     }
 }
