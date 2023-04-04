@@ -9,6 +9,13 @@
     <version>1.1.0</version>
     <idea-version since-build="222"/>
 
+    <change-notes><![CDATA[
+        <div>
+            <h2>New setting to display original (absolute) line numbers next to relative ones</h2>
+            <p>To enable, select: Settings > Editor > Line Numbers > Absolute values</p>
+        </div>
+    ]]></change-notes>
+
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor>Bernardo J. C. Nunes</vendor>
 
