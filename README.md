@@ -2,6 +2,12 @@
 
 A plugin to display relative line numbers on IDEA-based IDEs.
 
+## Deprecation Warning
+
+> [!WARNING]  
+> This plugin is no longer needed in recent versions of the IntellJ platform, which now has a native option for relative line numbers.
+> Go use that instead!
+
 # How to install
 
 <ul>
